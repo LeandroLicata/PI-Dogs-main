@@ -16,6 +16,8 @@ const getDbDogs = async () => {
       name: dog.name,
       temperament: dog.Temperament,
       weight: dog.weight,
+      height: dog.height,
+      life_span: dog.life_span,
       origin: "db",
     };
   });
@@ -27,14 +29,17 @@ const getApiDogs = async () => {
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
   const apiDogsClean = apiDogs.data.map((dog) => {
-    const temperament = dog.temperament.split(", ");
-    const weigth = dog.weight.metric.split(" - ");
+    const temperament = dog.temperament?.split(", ");
+    const weight = dog.weight.metric.split(" - ");
+    const height = dog.height.metric.split(" - ");
     return {
       id: dog.id,
       image: dog.image.url,
       name: dog.name,
       temperament,
-      weigth,
+      weight,
+      height,
+      life_span: dog.life_span,
       origin: "api",
     };
   });
@@ -42,11 +47,28 @@ const getApiDogs = async () => {
 };
 
 const getAllDogs = async () => {
-  const dbDogs = getDbDogs();
-  const apiDogs = getApiDogs();
+  const dbDogs = await getDbDogs();
+  const apiDogs = await getApiDogs();
   return [...dbDogs, ...apiDogs];
+};
+
+const findDogs = async (name) => {
+  const allDogs = await getAllDogs();
+  const filteredDogs = allDogs.filter((dog) =>
+    dog.name.toLowerCase().includes(name.toLowerCase())
+  );
+  return filteredDogs;
+};
+
+const findDog = async (idBreed) => {
+  const allDogs = await getAllDogs();
+  if (!idBreed.includes("-")) idBreed = parseInt(idBreed);
+  const dog = allDogs.find((dog) => dog.id === idBreed);
+  return dog;
 };
 
 module.exports = {
   getAllDogs,
+  findDogs,
+  findDog,
 };
