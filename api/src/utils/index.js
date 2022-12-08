@@ -9,12 +9,14 @@ const getDbDogs = async () => {
       attributes: ["name"],
     },
   });
+
   const dbDogsClean = dbDogs.map((dog) => {
+    const temperament = dog.temperaments.map((t) => t.name);
     return {
       id: dog.id,
       image: dog.image,
       name: dog.name,
-      temperament: dog.Temperament,
+      temperament,
       weight: dog.weight,
       height: dog.height,
       life_span: dog.life_span,
