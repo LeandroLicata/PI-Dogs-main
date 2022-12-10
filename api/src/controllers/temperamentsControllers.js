@@ -7,7 +7,7 @@ const getTemperaments = async (req, res) => {
         if(!dog.temperament) return dog.temperament = null;
         return dog.temperament.split(", ");
     })
-    const temperamentsClean = temperaments.flat().filter(Boolean);
+    const temperamentsClean = temperaments.filter(Boolean);
     const temperamentsUnique = new Set(temperamentsClean);
     temperamentsUnique.forEach(async (dog) => await Temperament.findOrCreate({
         where: {

@@ -1,0 +1,37 @@
+.container {
+  background-image: url("../../assets/Dog 1.jfif");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: yellow;
+  text-shadow: 2px 2px green;
+}
+
+.description {
+  color: white;
+  text-shadow: 2px 2px green;
+}
+
+.button {
+  background-color: yellow;
+  border-radius: 2rem;
+  color: green;
+  font-weight: 600;
+  border: none;
+  font-size: 20px;
+  transition: .5s;
+}
+
+.button:hover {
+    color: white;
+    background-color: green;
+    box-shadow: 0 0 1rem yellow, 0 0 4rem yellow, 0 0 8rem yellow
+}
