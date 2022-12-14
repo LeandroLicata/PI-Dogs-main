@@ -1,0 +1,18 @@
+.home_container {
+  background-image: url("../../assets/Ghost.In.The.Shell.2.Innocence.2004.1080p.BluRay.x264-MUVI\(042240\)2018-08-02-15-18-26.jfif");
+  /* height: 100vh; */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-position-y: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.home_title {
+  color: white;
+  text-shadow: 2px 2px red;
+}

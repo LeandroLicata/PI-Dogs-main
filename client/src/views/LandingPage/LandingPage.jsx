@@ -11,7 +11,7 @@ export default function LandingPage() {
           even add your own!
         </h2>
         <h2 className="description">Have fun touring Henry Dogs!</h2>
-        <Link to="/dogs">
+        <Link to="/home">
           <button className="button">Log In</button>
         </Link>
       </div>

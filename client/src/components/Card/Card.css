@@ -1,0 +1,22 @@
+.card_name {
+  color: black;
+  /* text-shadow: 2px 2px greenyellow; */
+  font-size: large;
+}
+
+.card_text {
+  color: black;
+  /* text-shadow: 2px 2px greenyellow; */
+  font-size: small;
+}
+
+.card_div {
+  background-color:bisque;
+  width: fit-content;
+  border-radius: 1rem;
+}
+
+.card_div:hover {
+  background-color: red;
+  color: white;
+}
