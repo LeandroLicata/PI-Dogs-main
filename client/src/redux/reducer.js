@@ -78,6 +78,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         dogs: filteredDogs,
       };
+    case FILTER_BY_ORIGIN:
+      const allDogs2 = state.allDogs;
+      const filteredDogs2 =
+        action.payload === "all breeds"
+          ? allDogs2
+          : allDogs2.filter((d) => d.origin === action.payload);
+      return {
+        ...state,
+        dogs: filteredDogs2,
+      };
     default:
       return {
         ...state,

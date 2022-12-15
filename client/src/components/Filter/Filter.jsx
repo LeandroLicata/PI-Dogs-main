@@ -15,21 +15,34 @@ export default function Filter() {
   }, [dispatch]);
 
   function handleFilterByTemperaments(e) {
-    dispatch(filterByTemperaments(e.target.value))
+    dispatch(filterByTemperaments(e.target.value));
   }
 
   function handleFilterByOrigin(e) {
-    dispatch(filterByOrigin(e.target.value))
+    dispatch(filterByOrigin(e.target.value));
   }
 
   return (
     <div>
-        <select onChange={(e) => handleFilterByTemperaments(e)}>
-            <option value="all temperaments">All</option>
-            {temperaments?.map((t) => (
-                <option value={t.name} key={t.name}>{t.name}</option>
-            ))}
-        </select>
+      <select onChange={(e) => handleFilterByTemperaments(e)}>
+        <option disabled selected defaultValue>
+          Temperaments
+        </option>
+        <option value="all temperaments">All</option>
+        {temperaments?.map((t) => (
+          <option value={t.name} key={t.name}>
+            {t.name}
+          </option>
+        ))}
+      </select>
+      <select onChange={(e) => handleFilterByOrigin(e)}>
+        <option disabled selected defaultValue>
+          Breeds
+        </option>
+        <option value="all breeds">All</option>
+        <option value="api">Existing</option>
+        <option value="db">Added</option>
+      </select>
     </div>
-  )
+  );
 }
