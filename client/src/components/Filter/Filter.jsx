@@ -24,8 +24,8 @@ export default function Filter() {
 
   return (
     <div>
-      <select onChange={(e) => handleFilterByTemperaments(e)}>
-        <option disabled selected defaultValue>
+      <select defaultValue="t" onChange={(e) => handleFilterByTemperaments(e)}>
+        <option value="t" disabled>
           Temperaments
         </option>
         <option value="all temperaments">All</option>
@@ -35,8 +35,8 @@ export default function Filter() {
           </option>
         ))}
       </select>
-      <select onChange={(e) => handleFilterByOrigin(e)}>
-        <option disabled selected defaultValue>
+      <select defaultValue="b" onChange={(e) => handleFilterByOrigin(e)}>
+        <option value="b" disabled>
           Breeds
         </option>
         <option value="all breeds">All</option>

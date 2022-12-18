@@ -6,6 +6,7 @@ import {
   FILTER_BY_ORIGIN,
   SORT_BY_NAME,
   SORT_BY_WEIGHT,
+  GET_DOGS_BY_NAME,
 } from "./actionsCreator";
 
 export const getDogs = () => {
@@ -53,5 +54,19 @@ export const sortByWeight = (payload) => {
   return {
     type: SORT_BY_WEIGHT,
     payload,
+  };
+};
+
+export const getDogsByName = (name) => {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get(`http://localhost:3001/dogs?name=${name}`);
+      return dispatch({
+        type: GET_DOGS_BY_NAME,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

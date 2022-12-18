@@ -6,6 +6,7 @@ import { getDogs } from "../../redux/actions";
 import Paging from "../../components/Paging/Paging";
 import Sort from "../../components/Sort/Sort";
 import Filter from "../../components/Filter/Filter";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const allDogs = useSelector((state) => state.dogs);
@@ -16,10 +17,12 @@ const Home = () => {
   }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line
   const [dogsPerPage, setDogsPerPage] = useState(8);
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
+  // eslint-disable-next-line
   const [order, setOrder] = useState("");
 
   const paging = (pageNumber) => {
@@ -28,6 +31,7 @@ const Home = () => {
   return (
     <div className="home_container">
       <h1 className="home_title">Henry Dogs</h1>
+      <SearchBar />
       <Sort setCurrentPage={setCurrentPage} setOrder={setOrder} />
       <Filter />
       <CardContainer currentDogs={currentDogs} />

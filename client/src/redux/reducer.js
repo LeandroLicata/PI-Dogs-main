@@ -5,6 +5,7 @@ import {
   SORT_BY_WEIGHT,
   FILTER_BY_TEMPERAMENTS,
   FILTER_BY_ORIGIN,
+  GET_DOGS_BY_NAME,
 } from "./actionsCreator";
 
 const initialState = {
@@ -87,6 +88,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: filteredDogs2,
+      };
+    case GET_DOGS_BY_NAME:
+      return {
+        ...state,
+        dogs: action.payload,
       };
     default:
       return {

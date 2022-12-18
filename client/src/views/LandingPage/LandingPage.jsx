@@ -7,7 +7,7 @@ export default function LandingPage() {
       <div>
         <h1 className="title">Welcome to Henry Dogs</h1>
         <h2 className="description">
-          A page where you can view different dog breeds and their details and
+          A page where you can view different dog breeds, their details and
           even add your own!
         </h2>
         <h2 className="description">Have fun touring Henry Dogs!</h2>
