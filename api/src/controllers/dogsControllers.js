@@ -17,12 +17,28 @@ const getDog = async (req, res) => {
 
 const createDog = async (req, res) => {
   try {
-    const { name, height, weight, life_span, image, temperament } = req.body;
+    const {
+      name,
+      min_height,
+      max_height,
+      min_weight,
+      max_weight,
+      life_span,
+      image,
+      temperament,
+    } = req.body;
+
+    const height = [];
+    height.push(min_height, max_height);
+    const weight = [];
+    weight.push(min_weight, max_weight);
+    
     const newDog = await Dog.create({ name, height, weight, life_span, image });
 
     let temperaments = await Temperament.findAll({
       where: { name: temperament },
     });
+    console.log(temperaments)
     await newDog.addTemperament(temperaments);
     res.status(200).send("Breed added successfully");
   } catch (error) {

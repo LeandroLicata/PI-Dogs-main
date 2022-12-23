@@ -9,9 +9,9 @@ const getTemperaments = async (req, res) => {
     })
     const temperamentsClean = temperaments.flat().filter(Boolean);
     const temperamentsUnique = new Set(temperamentsClean);
-    temperamentsUnique.forEach(async (dog) => await Temperament.findOrCreate({
+    temperamentsUnique.forEach(async (t) => await Temperament.findOrCreate({
         where: {
-            name: dog
+            name: t
         }
     }))
     const allTemperaments = await Temperament.findAll();

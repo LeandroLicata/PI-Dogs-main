@@ -70,3 +70,10 @@ export const getDogsByName = (name) => {
     }
   };
 };
+
+export const postDog = (payload) => {
+  return async function (dispatch) {
+    const response = await axios.post("http://localhost:3001/dogs", payload);
+    return response;
+  };
+};

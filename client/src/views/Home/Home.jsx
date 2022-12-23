@@ -7,6 +7,7 @@ import Paging from "../../components/Paging/Paging";
 import Sort from "../../components/Sort/Sort";
 import Filter from "../../components/Filter/Filter";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const allDogs = useSelector((state) => state.dogs);
@@ -34,6 +35,7 @@ const Home = () => {
       <SearchBar />
       <Sort setCurrentPage={setCurrentPage} setOrder={setOrder} />
       <Filter />
+      <Link to="/addbreed"><button>Add Breed</button></Link>
       <CardContainer currentDogs={currentDogs} />
       <Paging
         dogsPerPage={dogsPerPage}

@@ -6,6 +6,7 @@ import {
   FILTER_BY_TEMPERAMENTS,
   FILTER_BY_ORIGIN,
   GET_DOGS_BY_NAME,
+  POST_DOG,
 } from "./actionsCreator";
 
 const initialState = {
@@ -93,6 +94,10 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: action.payload,
+      };
+    case POST_DOG:
+      return {
+        ...state,
       };
     default:
       return {
