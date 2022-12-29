@@ -1,15 +1,12 @@
 .home_container {
-  background-image: url("https://wallpaperaccess.com/full/5450248.jpg");
-  /* height: 100vh; */
-  /* background-repeat: no-repeat; */
+  background-image: url("../../assets/Dog\ 2.jfif");
+  height: 190vh;
   background-size: cover;
   background-position-y: center;
   position: relative;
   display: flex;
   flex-direction: column;
   background-attachment: fixed;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .home_title {

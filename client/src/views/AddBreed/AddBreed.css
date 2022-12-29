@@ -1,0 +1,45 @@
+.form_container {
+  background-image: url("../../assets/Dog\ 2.jfif");
+  height: 100vh;
+  background-size: cover;
+  background-position-y: 0%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  margin: 0 auto;
+}
+
+.form_title {
+  color: white;
+  text-shadow: 2px 2px red;
+}
+
+.form_label {
+  color: white;
+  text-shadow: 1px 1px red;
+}
+
+.shown_temperaments {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+  /* position: relative; */
+  margin: 0 auto;
+}
+
+.delete_button {
+  color: white;
+  background-color:orangered;
+  border: none;
+  border-radius: 1rem;
+}
+
+.select {
+  background-color: bisque;
+  border-radius: 2rem;
+  color: black;
+  font-weight: 600;
+  border: none;
+}

@@ -1,5 +1,6 @@
 import Card from "../Card/Card";
 import "./CardsContainer.css";
+import { NavLink } from "react-router-dom";
 
 const CardContainer = ({ currentDogs }) => {
   return (
@@ -7,13 +8,16 @@ const CardContainer = ({ currentDogs }) => {
       {currentDogs.length
         ? currentDogs.map((dog) => {
             return (
-              <Card
-                key={dog.id}
-                image={dog.image}
-                name={dog.name}
-                temperament={dog.temperament}
-                weight={dog.weight}
-              />
+              <div key={dog.id}>
+                <Card
+                  key={dog.id}
+                  id={dog.id}
+                  image={dog.image}
+                  name={dog.name}
+                  temperament={dog.temperament}
+                  weight={dog.weight}
+                />
+              </div>
             );
           })
         : "Loading..."}

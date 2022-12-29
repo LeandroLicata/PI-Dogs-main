@@ -20,14 +20,14 @@ export default function Sort({ setCurrentPage, setOrder }) {
 
   return (
     <div>
-      <select defaultValue="ao" onChange={(e) => handleSortByName(e)}>
+      <select className="select" defaultValue="ao" onChange={(e) => handleSortByName(e)}>
         <option value="ao" disabled>
           Alphabetical order
         </option>
         <option value="a-z">A-Z</option>
         <option value="z-a">Z-A</option>
       </select>
-      <select defaultValue="sbw" onChange={(e) => handleSortByWeight(e)}>
+      <select className="select" defaultValue="sbw" onChange={(e) => handleSortByWeight(e)}>
         <option value="sbw" disabled>
           Sort by weight
         </option>

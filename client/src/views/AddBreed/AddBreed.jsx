@@ -2,11 +2,23 @@ import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperaments } from "../../redux/actions";
+import "./AddBreed.css";
+
+function validate(input) {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "name required";
+  } else if (!input.life_span) {
+    errors.life_span = "life span required";
+  }
+  return errors;
+}
 
 export default function AddBreed() {
   const dispatch = useDispatch();
   const history = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
+  const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
@@ -24,6 +36,12 @@ export default function AddBreed() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSubmit(e) {
@@ -43,44 +61,51 @@ export default function AddBreed() {
     history.push("/home");
   }
 
-  const handleSelect = (e) => {
+  function handleSelect(e) {
     setInput({
       ...input,
       temperament: [...input.temperament, e.target.value],
     });
-  };
+  }
+
+  function handleDelete(e) {
+    setInput({
+      ...input,
+      temperament: input.temperament.filter((tem) => tem !== e),
+    });
+  }
 
   useEffect(() => {
     dispatch(getTemperaments());
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="form_container">
       <Link to="/home">
-        <button>Return</button>
+        <button className="return_button">Return</button>
       </Link>
-      <h1>Add your dog breed!</h1>
+      <h1 className="form_title">Add your dog breed!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
-          <label>Name:</label>
+          <label className="form_label">Name:</label>
           <input
             type="text"
             value={input.name}
             name="name"
             onChange={handleChange}
           />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
 
         <div>
-          <h4>Height(cm)</h4>
-          <label>Min Height:</label>
+          <label className="form_label">Min Height(cm):</label>
           <input
             type="text"
             value={input.min_height}
             name="min_height"
             onChange={handleChange}
           />
-          <label>Max Height:</label>
+          <label className="form_label">Max Height(cm):</label>
           <input
             type="text"
             value={input.max_height}
@@ -90,15 +115,14 @@ export default function AddBreed() {
         </div>
 
         <div>
-          <h4>Weight(Kg)</h4>
-          <label>Min Weight:</label>
+          <label className="form_label">Min Weight(Kg):</label>
           <input
             type="text"
             value={input.min_weight}
             name="min_weight"
             onChange={handleChange}
           />
-          <label>Max Height:</label>
+          <label className="form_label">Max Weight(Kg):</label>
           <input
             type="text"
             value={input.max_weight}
@@ -107,18 +131,17 @@ export default function AddBreed() {
           />
         </div>
         <div>
-          <h4></h4>
-          <label>Life Span:</label>
+          <label className="form_label">Life Span:</label>
           <input
             type="text"
             value={input.life_span}
             name="life_span"
             onChange={handleChange}
           />
+          {errors.life_span && <p className="error">{errors.life_span}</p>}
         </div>
         <div>
-          <h4></h4>
-          <label>Image:</label>
+          <label className="form_label">Image:</label>
           <input
             type="text"
             value={input.image}
@@ -127,8 +150,9 @@ export default function AddBreed() {
           />
         </div>
 
-        <h3>Select Temperaments</h3>
-        <select defaultValue="t" onChange={(e) => handleSelect(e)}>
+        <h3 className="form_label">Select Temperaments</h3>
+
+        <select className="select" defaultValue="t" onChange={(e) => handleSelect(e)}>
           <option value="t" disabled>
             Temperaments
           </option>
@@ -138,10 +162,22 @@ export default function AddBreed() {
             </option>
           ))}
         </select>
-        <ul>
-          <li>{input.temperament.map((el) => el + " ")}</li>
-        </ul>
-        <button type="submit">Create Dog</button>
+
+        {input.temperament.map((el) => (
+          <div className="shown_temperaments">
+            <p className="form_label">{el}_</p>
+            <button
+              type="button"
+              className="delete_button"
+              onClick={() => handleDelete(el)}
+            >
+              x
+            </button>
+          </div>
+        ))}
+        <button type="submit" className="button">
+          Create Dog
+        </button>
       </form>
     </div>
   );

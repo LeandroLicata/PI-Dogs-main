@@ -24,7 +24,7 @@ export default function Filter() {
 
   return (
     <div>
-      <select defaultValue="t" onChange={(e) => handleFilterByTemperaments(e)}>
+      <select className="select" defaultValue="t" onChange={(e) => handleFilterByTemperaments(e)}>
         <option value="t" disabled>
           Temperaments
         </option>
@@ -35,7 +35,7 @@ export default function Filter() {
           </option>
         ))}
       </select>
-      <select defaultValue="b" onChange={(e) => handleFilterByOrigin(e)}>
+      <select className="select" defaultValue="b" onChange={(e) => handleFilterByOrigin(e)}>
         <option value="b" disabled>
           Breeds
         </option>

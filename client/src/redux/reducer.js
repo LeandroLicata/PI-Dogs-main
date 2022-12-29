@@ -7,12 +7,14 @@ import {
   FILTER_BY_ORIGIN,
   GET_DOGS_BY_NAME,
   POST_DOG,
+  GET_DETAILS,
 } from "./actionsCreator";
 
 const initialState = {
   dogs: [],
   temperaments: [],
   allDogs: [],
+  detail: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -98,6 +100,11 @@ const rootReducer = (state = initialState, action) => {
     case POST_DOG:
       return {
         ...state,
+      };
+    case GET_DETAILS:
+      return {
+        ...state,
+        detail: action.payload,
       };
     default:
       return {

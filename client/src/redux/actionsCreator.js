@@ -6,3 +6,4 @@ export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_WEIGHT = "SORT_BY_WEIGHT";
 export const GET_DOGS_BY_NAME = "GET_DOGS_BY_NAME";
 export const POST_DOG = "POST_DOG";
+export const GET_DETAILS = "GET_DETAILS";

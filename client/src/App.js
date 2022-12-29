@@ -4,6 +4,7 @@ import LandingPage from "./views/LandingPage/LandingPage";
 import Home from "./views/Home/Home";
 import AddBreed from "./views/AddBreed/AddBreed";
 import { Switch } from "react-router-dom";
+import Detail from "./views/Detail/Detail"
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/home" component={Home} />
-        <Route exact patch="/addbreed" component={AddBreed} />
+        <Route exact path="/addbreed" component={AddBreed} />
+        <Route exact path="/detail/:id" component={Detail} />
       </Switch>
     </div>
   );

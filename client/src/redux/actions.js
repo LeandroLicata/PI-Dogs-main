@@ -7,6 +7,7 @@ import {
   SORT_BY_NAME,
   SORT_BY_WEIGHT,
   GET_DOGS_BY_NAME,
+  GET_DETAILS,
 } from "./actionsCreator";
 
 export const getDogs = () => {
@@ -75,5 +76,19 @@ export const postDog = (payload) => {
   return async function (dispatch) {
     const response = await axios.post("http://localhost:3001/dogs", payload);
     return response;
+  };
+};
+
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get(`http://localhost:3001/dogs/${id}`);
+      return dispatch({
+        type: GET_DETAILS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

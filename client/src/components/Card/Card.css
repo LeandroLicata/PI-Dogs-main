@@ -11,12 +11,21 @@
 }
 
 .card_div {
-  background-color:bisque;
+  background-color: bisque;
   width: fit-content;
   border-radius: 1rem;
 }
 
-.card_div:hover {
+.card_button {
+  background-color: darkorange;
+  border-radius: 1rem;
+  color: black;
+  border: none;
+  transition: 0.5s;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.card_button:hover {
   background-color: red;
-  color: white;
 }
