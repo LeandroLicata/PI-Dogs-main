@@ -35,7 +35,7 @@ const Home = () => {
       <SearchBar />
       <Sort setCurrentPage={setCurrentPage} setOrder={setOrder} />
       <Filter />
-      <Link to="/addbreed"><button>Add Breed</button></Link>
+      <Link to="/addbreed"><button className="breed_button">Add Breed</button></Link>
       <CardContainer currentDogs={currentDogs} />
       <Paging
         dogsPerPage={dogsPerPage}

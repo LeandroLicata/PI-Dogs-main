@@ -10,6 +10,20 @@
 }
 
 .home_title {
-  color: white;
-  text-shadow: 2px 2px red;
+  color: darkorange;
+  text-shadow: 2px 2px bisque;
+}
+
+.breed_button {
+  background-color: darkorange;
+  border-radius: 1rem;
+  color: black;
+  border: none;
+  transition: 0.5s;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.breed_button:hover {
+  background-color: red;
 }
