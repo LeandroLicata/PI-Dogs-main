@@ -1,0 +1,21 @@
+.detail_container {
+  background-image: url("../../assets/Dog\ 2.jfif");
+  height: 125vh;
+  background-size: cover;
+  
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  
+}
+
+.detail_name {
+  color: darkorange;
+  text-shadow: 2px 2px bisque;
+}
+
+.detail_text {
+  color: bisque;
+  text-shadow: 1px 1px darkorange;
+}
+

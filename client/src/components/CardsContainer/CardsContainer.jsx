@@ -1,6 +1,5 @@
 import Card from "../Card/Card";
 import "./CardsContainer.css";
-import { NavLink } from "react-router-dom";
 
 const CardContainer = ({ currentDogs }) => {
   return (

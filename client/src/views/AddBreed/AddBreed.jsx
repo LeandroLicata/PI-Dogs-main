@@ -89,6 +89,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Name:</label>
           <input
+            className="form_input"
             type="text"
             value={input.name}
             name="name"
@@ -100,6 +101,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Min Height(cm):</label>
           <input
+            className="form_input"
             type="text"
             value={input.min_height}
             name="min_height"
@@ -107,6 +109,7 @@ export default function AddBreed() {
           />
           <label className="form_label">Max Height(cm):</label>
           <input
+            className="form_input"
             type="text"
             value={input.max_height}
             name="max_height"
@@ -117,6 +120,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Min Weight(Kg):</label>
           <input
+            className="form_input"
             type="text"
             value={input.min_weight}
             name="min_weight"
@@ -124,6 +128,7 @@ export default function AddBreed() {
           />
           <label className="form_label">Max Weight(Kg):</label>
           <input
+            className="form_input"
             type="text"
             value={input.max_weight}
             name="max_weight"
@@ -133,6 +138,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Life Span:</label>
           <input
+            className="form_input"
             type="text"
             value={input.life_span}
             name="life_span"
@@ -143,6 +149,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Image:</label>
           <input
+            className="form_input"
             type="text"
             value={input.image}
             name="image"
@@ -152,7 +159,11 @@ export default function AddBreed() {
 
         <h3 className="form_label">Select Temperaments</h3>
 
-        <select className="select" defaultValue="t" onChange={(e) => handleSelect(e)}>
+        <select
+          className="select"
+          defaultValue="t"
+          onChange={(e) => handleSelect(e)}
+        >
           <option value="t" disabled>
             Temperaments
           </option>
@@ -175,6 +186,8 @@ export default function AddBreed() {
             </button>
           </div>
         ))}
+        <br />
+        <br />
         <button type="submit" className="button">
           Create Dog
         </button>

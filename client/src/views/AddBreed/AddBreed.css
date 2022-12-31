@@ -11,13 +11,13 @@
 }
 
 .form_title {
-  color: white;
-  text-shadow: 2px 2px red;
+  color: darkorange;
+  text-shadow: 2px 2px bisque;
 }
 
 .form_label {
-  color: white;
-  text-shadow: 1px 1px red;
+  color: darkorange;
+  text-shadow: 1px 1px bisque;
 }
 
 .shown_temperaments {
@@ -31,7 +31,7 @@
 
 .delete_button {
   color: white;
-  background-color:orangered;
+  background-color: orangered;
   border: none;
   border-radius: 1rem;
 }
@@ -41,5 +41,25 @@
   border-radius: 2rem;
   color: black;
   font-weight: 600;
+  border: none;
+}
+
+.return_button {
+  background-color: darkorange;
+  border-radius: 1rem;
+  color: black;
+  border: none;
+  transition: 0.5s;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.return_button:hover {
+  background-color: red;
+}
+
+.form_input {
+  border-radius: 2rem;
+  background-color: bisque;
   border: none;
 }
