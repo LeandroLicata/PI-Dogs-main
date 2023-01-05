@@ -23,7 +23,8 @@ const createDog = async (req, res) => {
       max_height,
       min_weight,
       max_weight,
-      life_span,
+      min_life_span,
+      max_life_span,
       image,
       temperament,
     } = req.body;
@@ -32,6 +33,7 @@ const createDog = async (req, res) => {
     height.push(min_height, max_height);
     const weight = [];
     weight.push(min_weight, max_weight);
+    const life_span = `${min_life_span} - ${max_life_span} years`;
     
     const newDog = await Dog.create({ name, height, weight, life_span, image });
 

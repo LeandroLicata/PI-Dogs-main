@@ -18,7 +18,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div>
+    <div className="search_container">
       <input
         className="search_input"
         type="text"

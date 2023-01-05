@@ -1,5 +1,5 @@
 .paging {
-  padding: 0 0 5rem 0.5rem;
+  /* padding: 0 0 5rem 0.5rem; */
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -9,28 +9,23 @@
 
 .number {
   list-style: none;
-  /* float: left; */
   margin: 0.2rem;
   display: flex;
   margin-top: 3rem;
   flex-direction: row;
-  
 }
 
 .paging_button {
   background-color:darkorange;
-  /* border-radius: 2rem; */
   color: black;
   font-weight: 600;
   border: none;
   font-size: 15px;
   transition: 0.5s;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 .paging_button:hover {
-  /* color: white; */
   background-color: red;
-  /* box-shadow: 0 0 1rem yellow, 0 0 4rem yellow, 0 0 8rem yellow; */
-  
 }

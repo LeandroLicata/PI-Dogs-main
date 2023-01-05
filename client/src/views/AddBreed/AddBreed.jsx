@@ -6,10 +6,53 @@ import "./AddBreed.css";
 
 function validate(input) {
   let errors = {};
-  if (!input.name) {
-    errors.name = "name required";
-  } else if (!input.life_span) {
-    errors.life_span = "life span required";
+  // if (!input.name) {
+  //   errors.name = "name is required";
+  // }
+  if (!/^[A-Za-z \-]*$/.test(input.name)) {
+    errors.name = "invalid name";
+  }
+  // if (!input.min_height) {
+  //   errors.height = "height required";
+  // }
+  // if (!input.max_height) {
+  //   errors.height = "height required";
+  // }
+  if (input.min_height >= input.max_height) {
+    errors.height = "max height must be higher than min height";
+  }
+  // if (!input.min_weight) {
+  //   errors.weight = "weight required";
+  // }
+  // if (!input.max_weight) {
+  //   errors.weight = "weight required";
+  // }
+  if (input.min_weight >= input.max_weight) {
+    errors.weight = "max weight must be higher than min height";
+  }
+  // if (!input.min_life_span) {
+  //   errors.life_span = "life span required";
+  // }
+  // if (!input.max_life_span) {
+  //   errors.life_span = "life span required";
+  // }
+  if (input.min_weight >= input.max_weight) {
+    errors.life_span = "max life span must be higher than min life span";
+  }
+  if (input.image) {
+    if (
+      !/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(
+        input.image
+      )
+    ) {
+      errors.image = "invalid image url";
+    }
+  }
+  // if (!input.temperament.length) {
+  //   errors.temperament = "there has to be at least one temperament";
+  // }
+  if (input.temperament.length > 6) {
+    errors.temperament = "there can only be up to 6 temperaments";
   }
   return errors;
 }
@@ -26,7 +69,8 @@ export default function AddBreed() {
     max_height: "",
     min_weight: "",
     max_weight: "",
-    life_span: "",
+    min_life_span: "",
+    max_life_span: "",
     image: "",
     temperament: [],
   });
@@ -54,7 +98,8 @@ export default function AddBreed() {
       max_height: "",
       min_weight: "",
       max_weight: "",
-      life_span: "",
+      min_life_span: "",
+      max_life_span: "",
       image: "",
       temperament: [],
     });
@@ -93,6 +138,7 @@ export default function AddBreed() {
             type="text"
             value={input.name}
             name="name"
+            required
             onChange={handleChange}
           />
           {errors.name && <p className="error">{errors.name}</p>}
@@ -102,46 +148,75 @@ export default function AddBreed() {
           <label className="form_label">Min Height(cm):</label>
           <input
             className="form_input"
-            type="text"
+            type="number"
+            min="15"
+            max="100"
             value={input.min_height}
             name="min_height"
+            required
             onChange={handleChange}
           />
           <label className="form_label">Max Height(cm):</label>
           <input
             className="form_input"
-            type="text"
+            type="number"
+            min="15"
+            max="100"
             value={input.max_height}
             name="max_height"
+            required
             onChange={handleChange}
           />
+          {errors.height && <p className="error">{errors.height}</p>}
         </div>
 
         <div>
           <label className="form_label">Min Weight(Kg):</label>
           <input
             className="form_input"
-            type="text"
+            type="number"
+            min="1"
+            max="90"
             value={input.min_weight}
             name="min_weight"
+            required
             onChange={handleChange}
           />
           <label className="form_label">Max Weight(Kg):</label>
           <input
             className="form_input"
-            type="text"
+            type="number"
+            min="1"
+            max="90"
             value={input.max_weight}
             name="max_weight"
+            required
             onChange={handleChange}
           />
+          {errors.weight && <p className="error">{errors.weight}</p>}
         </div>
         <div>
-          <label className="form_label">Life Span:</label>
+          <label className="form_label">Life Span(min):</label>
           <input
             className="form_input"
-            type="text"
-            value={input.life_span}
-            name="life_span"
+            type="number"
+            min="5"
+            max="20"
+            value={input.min_life_span}
+            name="min_life_span"
+            required
+            onChange={handleChange}
+          />
+
+          <label className="form_label">Life Span(max):</label>
+          <input
+            className="form_input"
+            type="number"
+            min="5"
+            max="20"
+            value={input.max_life_span}
+            name="max_life_span"
+            required
             onChange={handleChange}
           />
           {errors.life_span && <p className="error">{errors.life_span}</p>}
@@ -150,21 +225,24 @@ export default function AddBreed() {
           <label className="form_label">Image:</label>
           <input
             className="form_input"
-            type="text"
+            type="url"
             value={input.image}
             name="image"
+            required
             onChange={handleChange}
           />
+          {errors.image && <p className="error">{errors.image}</p>}
         </div>
 
         <h3 className="form_label">Select Temperaments</h3>
 
         <select
           className="select"
-          defaultValue="t"
+          defaultValue=""
+          required
           onChange={(e) => handleSelect(e)}
         >
-          <option value="t" disabled>
+          <option value="" disabled>
             Temperaments
           </option>
           {temperaments?.map((t) => (
@@ -176,7 +254,7 @@ export default function AddBreed() {
 
         {input.temperament.map((el) => (
           <div className="shown_temperaments">
-            <p className="form_label">{el}_</p>
+            <p className="form_label">{el}</p>
             <button
               type="button"
               className="delete_button"
@@ -186,6 +264,7 @@ export default function AddBreed() {
             </button>
           </div>
         ))}
+        {errors.temperament && <p className="error">{errors.temperament}</p>}
         <br />
         <br />
         <button type="submit" className="button">

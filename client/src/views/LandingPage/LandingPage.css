@@ -1,13 +1,23 @@
 .container {
-  background-image: url("../../assets/Dog\ 1.jfif");
+  background-image: url("https://img5.goodfon.com/wallpaper/nbig/b/54/priroda-vetki-listia-zhivotnoe-sobaka-pios-poza.jpg");
   height: 100vh;
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: center;
+  background-position: center;
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  background-attachment: fixed;
+  padding-right: 30px;
   justify-content: center;
+  
+}
+
+.landing_text_container {
+  margin-top: -110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .title {
@@ -17,11 +27,11 @@
 
 .description {
   color: bisque;
-  text-shadow: 2px 2px darkorange;
+  text-shadow: 2px 2px black;
 }
 
 .button {
-  background-color: bisque;
+  background-color: darkorange;
   border-radius: 2rem;
   color: black;
   font-weight: 600;

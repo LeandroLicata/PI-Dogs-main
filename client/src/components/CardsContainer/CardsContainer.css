@@ -4,4 +4,9 @@
     grid-gap: 5% 0.9%;
     justify-items: center;
     padding: 2rem 0 2rem 0;
+    align-items: center;
+}
+
+.card {
+    margin: 5px;
 }

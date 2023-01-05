@@ -31,17 +31,21 @@ const Home = () => {
   };
   return (
     <div className="home_container">
-      <h1 className="home_title">Henry Dogs</h1>
-      <SearchBar />
+      <div className="header">
+        <h1 className="home_title">The Dog Wiki</h1>
+        <SearchBar />
+        <Link to="/addbreed">
+          <button className="breed_button">Add Breed</button>
+        </Link>
+      </div>
       <Sort setCurrentPage={setCurrentPage} setOrder={setOrder} />
       <Filter />
-      <Link to="/addbreed"><button className="breed_button">Add Breed</button></Link>
-      <CardContainer currentDogs={currentDogs} />
       <Paging
         dogsPerPage={dogsPerPage}
         allDogs={allDogs.length}
         paging={paging}
       />
+      <CardContainer currentDogs={currentDogs} />
     </div>
   );
 };
