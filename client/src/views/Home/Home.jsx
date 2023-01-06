@@ -35,7 +35,7 @@ const Home = () => {
         <h1 className="home_title">The Dog Wiki</h1>
         <SearchBar />
         <Link to="/addbreed">
-          <button className="breed_button">Add Breed</button>
+          <button className="button">Add Breed</button>
         </Link>
       </div>
       <Sort setCurrentPage={setCurrentPage} setOrder={setOrder} />

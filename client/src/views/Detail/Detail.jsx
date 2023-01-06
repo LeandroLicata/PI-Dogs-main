@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import "./Detail.css";
-import dogImage from "../../assets/no image dog.jpg";
+import dogImage from "../../assets/default-dog.png";
 import loadingImage from "../../assets/loading-dog.gif";
 
 export default function Detail(props) {
@@ -15,7 +15,7 @@ export default function Detail(props) {
     dispatch(getDetail(props.match.params.id)).then(() => {
       setIsLoading(false);
     });
-  }, [dispatch]);
+  }, [dispatch, props.match.params.id]);
 
   const myDog = useSelector((state) => state.detail);
 

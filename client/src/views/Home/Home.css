@@ -1,5 +1,5 @@
 .home_container {
-  background-image: url("../../assets/Black-dog-hazy_1920x1200.jpg");
+  background-image: url("../../assets/Background.jpg");
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -22,10 +22,12 @@
   transition: 0.5s;
   font-weight: 600;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .breed_button:hover {
   background-color: red;
+  box-shadow: 0 0 1rem white, 0 0 4rem white, 0 0 8rem white
 }
 
 .header {

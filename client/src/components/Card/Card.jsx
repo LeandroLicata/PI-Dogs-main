@@ -1,6 +1,6 @@
 import "./Card.css";
 import { Link } from "react-router-dom";
-import dogImage from "../../assets/no image dog.jpg";
+import dogImage from "../../assets/default-dog.png";
 
 const Card = ({ id, image, name, temperament, weight }) => {
   return (

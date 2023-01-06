@@ -6,41 +6,22 @@ import "./AddBreed.css";
 
 function validate(input) {
   let errors = {};
-  // if (!input.name) {
-  //   errors.name = "name is required";
-  // }
-  if (!/^[A-Za-z \-]*$/.test(input.name)) {
+  // eslint-disable-next-line
+  if (!/^[A-Za-z \-]*$/.test(input.name)) { 
     errors.name = "invalid name";
   }
-  // if (!input.min_height) {
-  //   errors.height = "height required";
-  // }
-  // if (!input.max_height) {
-  //   errors.height = "height required";
-  // }
   if (input.min_height >= input.max_height) {
     errors.height = "max height must be higher than min height";
   }
-  // if (!input.min_weight) {
-  //   errors.weight = "weight required";
-  // }
-  // if (!input.max_weight) {
-  //   errors.weight = "weight required";
-  // }
   if (input.min_weight >= input.max_weight) {
     errors.weight = "max weight must be higher than min height";
   }
-  // if (!input.min_life_span) {
-  //   errors.life_span = "life span required";
-  // }
-  // if (!input.max_life_span) {
-  //   errors.life_span = "life span required";
-  // }
   if (input.min_weight >= input.max_weight) {
     errors.life_span = "max life span must be higher than min life span";
   }
   if (input.image) {
     if (
+      // eslint-disable-next-line
       !/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(
         input.image
       )
@@ -48,9 +29,6 @@ function validate(input) {
       errors.image = "invalid image url";
     }
   }
-  // if (!input.temperament.length) {
-  //   errors.temperament = "there has to be at least one temperament";
-  // }
   if (input.temperament.length > 6) {
     errors.temperament = "there can only be up to 6 temperaments";
   }
@@ -134,7 +112,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Name:</label>
           <input
-            className="form_input"
+            className="form_input" 
             type="text"
             value={input.name}
             name="name"
@@ -267,7 +245,7 @@ export default function AddBreed() {
         {errors.temperament && <p className="error">{errors.temperament}</p>}
         <br />
         <br />
-        <button type="submit" className="button">
+        <button type="submit" className="button" disabled={Object.keys(errors).length > 0}>
           Create Dog
         </button>
       </form>

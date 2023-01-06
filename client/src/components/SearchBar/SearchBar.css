@@ -10,7 +10,8 @@
     transition: 0.5s;
     font-weight: 600;
     font-size: 15px;
-    border: none
+    border: none;
+    cursor: pointer;
 }
 
 .search_button:hover {
