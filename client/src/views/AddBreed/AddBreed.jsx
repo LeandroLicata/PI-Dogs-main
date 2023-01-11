@@ -7,16 +7,16 @@ import "./AddBreed.css";
 function validate(input) {
   let errors = {};
   // eslint-disable-next-line
-  if (!/^[A-Za-z \-]*$/.test(input.name)) { 
+  if (!/^[A-Za-z \-]*$/.test(input.name)) {
     errors.name = "invalid name";
   }
-  if (input.min_height >= input.max_height) {
+  if (parseInt(input.min_height) >= parseInt(input.max_height)) {
     errors.height = "max height must be higher than min height";
   }
-  if (input.min_weight >= input.max_weight) {
+  if (parseInt(input.min_weight) >= parseInt(input.max_weight)) {
     errors.weight = "max weight must be higher than min height";
   }
-  if (input.min_weight >= input.max_weight) {
+  if (parseInt(input.min_life_span) >= parseInt(input.max_life_span)) {
     errors.life_span = "max life span must be higher than min life span";
   }
   if (input.image) {
@@ -40,6 +40,7 @@ export default function AddBreed() {
   const history = useHistory();
   const temperaments = useSelector((state) => state.temperaments);
   const [errors, setErrors] = useState({});
+  const message = useSelector((state) => state.message);
 
   const [input, setInput] = useState({
     name: "",
@@ -65,11 +66,9 @@ export default function AddBreed() {
       })
     );
   }
-
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postDog(input));
-    alert("Dog breed added successfully");
     setInput({
       name: "",
       min_height: "",
@@ -81,8 +80,14 @@ export default function AddBreed() {
       image: "",
       temperament: [],
     });
-    history.push("/home");
   }
+
+  useEffect(() => {
+    if (message) {
+      alert(message);
+      history.push("/home");
+    }
+  }, [message, history]);
 
   function handleSelect(e) {
     setInput({
@@ -112,7 +117,7 @@ export default function AddBreed() {
         <div>
           <label className="form_label">Name:</label>
           <input
-            className="form_input" 
+            className="form_input"
             type="text"
             value={input.name}
             name="name"
@@ -206,7 +211,6 @@ export default function AddBreed() {
             type="url"
             value={input.image}
             name="image"
-            required
             onChange={handleChange}
           />
           {errors.image && <p className="error">{errors.image}</p>}
@@ -245,7 +249,11 @@ export default function AddBreed() {
         {errors.temperament && <p className="error">{errors.temperament}</p>}
         <br />
         <br />
-        <button type="submit" className="button" disabled={Object.keys(errors).length > 0}>
+        <button
+          type="submit"
+          className="button"
+          disabled={Object.keys(errors).length > 0}
+        >
           Create Dog
         </button>
       </form>

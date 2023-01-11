@@ -8,6 +8,7 @@ import {
   SORT_BY_WEIGHT,
   GET_DOGS_BY_NAME,
   GET_DETAILS,
+  POST_DOG
 } from "./actionsCreator";
 
 export const getDogs = () => {
@@ -75,7 +76,10 @@ export const getDogsByName = (name) => {
 export const postDog = (payload) => {
   return async function (dispatch) {
     const response = await axios.post("http://localhost:3001/dogs", payload);
-    return response;
+    return dispatch({
+      type: POST_DOG,
+      payload: response.data,
+    })
   };
 };
 

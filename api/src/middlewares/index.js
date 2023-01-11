@@ -37,7 +37,7 @@ const validateDog = (req, res, next) => {
     return res
       .status(400)
       .json({ error: "weight must have values between 1 and 90" });
-  if (min_height >= max_height)
+  if (parseInt(min_height) >= parseInt(max_height))
     return res
       .status(400)
       .json({ error: "max weight must be higher than min weight" });
@@ -53,7 +53,7 @@ const validateDog = (req, res, next) => {
     return res
       .status(400)
       .json({ error: "life span must have values between 5 and 20" });
-  if (min_life_span >= max_life_span)
+  if (parseInt(min_life_span) >= parseInt(max_life_span))
     return res
       .status(400)
       .json({ error: "max life span must be higher than min life span" });

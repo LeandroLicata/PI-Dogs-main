@@ -15,6 +15,7 @@ const initialState = {
   temperaments: [],
   allDogs: [],
   detail: [],
+  message: "",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -100,6 +101,7 @@ const rootReducer = (state = initialState, action) => {
     case POST_DOG:
       return {
         ...state,
+        message: action.payload,
       };
     case GET_DETAILS:
       return {
