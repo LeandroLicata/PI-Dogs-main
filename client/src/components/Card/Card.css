@@ -1,0 +1,35 @@
+.card_name {
+  color: black;
+  text-shadow: 1px 1px bisque;
+  font-size: large;
+  
+}
+
+.card_text {
+  color: bisque;
+  text-shadow: 1px 1px black;
+  font-size: small;
+  font-weight: 600;
+}
+
+.card_div {
+  background-color: rgba(223, 126, 16, 0.5);
+  width: 280px;
+  border-radius: 1rem;
+  height: 320px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.card_div:hover {
+  background-color: red;
+  box-shadow: 0 0 1rem white, 0 0 4rem white, 0 0 8rem white;
+}
+
+.card_image {
+  margin: 5px
+}
+
+* {
+  text-decoration: none; /* Quita el subrayado de todos los enlaces */
+}

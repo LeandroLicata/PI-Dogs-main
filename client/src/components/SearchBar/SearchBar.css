@@ -1,0 +1,19 @@
+.search_input {
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.search_button {
+    background-color: darkorange;
+    border-radius: 2rem;
+    transition: 0.5s;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.search_button:hover {
+    background-color: red;
+}
